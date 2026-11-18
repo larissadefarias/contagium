@@ -88,7 +88,7 @@ Alguns problemas que o simulador ajudou a encontrar e corrigir durante o desenvo
 
 ## 👩‍💻 Autoras
 - **[larissadefarias](https://github.com/larissadefarias)**
-- **Amanda Nunes** (coautora)
+- **Amanda Gauna** (coautora)
 
 ## 🎨 Créditos
 
