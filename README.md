@@ -86,6 +86,10 @@ Alguns problemas que o simulador ajudou a encontrar e corrigir durante o desenvo
 
 ---
 
+## 👩‍💻 Autoras
+- **[larissadefarias](https://github.com/larissadefarias)**
+- **Amanda Nunes** (coautora)
+
 ## 🎨 Créditos
 
 - **Personagens:** *Gothic Vampire Undead Horde – 7 Pixel Art Character Sprite Pack* (itch.io). O autor informa que a arte foi gerada com IA e retocada à mão.
@@ -93,4 +97,4 @@ Alguns problemas que o simulador ajudou a encontrar e corrigir durante o desenvo
 - **Fontes:** Pixelify Sans e Nunito (Google Fonts).
 
 ## 📄 Licença
-O **código** está sob a [PolyForm Noncommercial 1.0.0](LICENSE): **pode estudar, modificar e usar para fins não comerciais**, mas **não pode vender nem lucrar** com o código sem autorização. A **arte** pertence aos autores dos pacotes, segue as licenças deles e não está incluída.
+O **código** está sob a [PolyForm Noncommercial 1.0.0](LICENSE): **pode estudar, modificar e usar para fins não comerciais**, mas **não pode vender nem lucrar** com o código sem autorização das autoras. A **arte** pertence aos autores dos pacotes, segue as licenças deles e não está incluída.
