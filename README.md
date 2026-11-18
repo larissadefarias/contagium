@@ -45,7 +45,7 @@ O guia completo do streamer (comandos, regras e ajustes) está em **[LEIA-ME.md]
 
 ### Comandos principais
 - **Moderadores:** `!abrir`, `!iniciar`, `!pausar`, `!encerrar`, `!tempo 20`, `!rainha`, `!cenario`.
-- **Viewers:** `!entrar`, `!bater @nome`, `!curar @nome`, `!purificar @nome`, `!atacar rainha`, `!status`, `!loja`.
+- **Viewers:** `!entrar`, `!bater @nome`, `!curar @nome`, `!purificar @nome`, `!atacar rainha`, `!perfil`, `!loja`.
 
 ---
 

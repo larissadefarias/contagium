@@ -60,7 +60,7 @@ O jogo **salva sozinho**. Se o OBS fechar, a partida continua de onde parou.
 | `!purificar @nome` | Bruxo: transforma um monstro caído de volta em humano |
 | `!atacar rainha` | Acorda a Rainha quando ela está no trono |
 | `!auto` | Volta para o automático |
-| `!status` | Mostra classe, vida e pontos em cima do bonequinho |
+| `!perfil` (ou `!pontos`) | Mostra classe, vida e pontos em cima do bonequinho |
 | `!eu` (ou qualquer mensagem) | Mostra uma setinha em cima do seu bonequinho |
 | `!loja` | Mostra a loja |
 | `!ajuda` (ou `!comandos`) | Mostra na tela o painel "Como jogar" |

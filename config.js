@@ -197,6 +197,10 @@ window.CONFIG = {
     derivaCamera: 0,             // >0 faz o cenário deslizar devagar o tempo todo (pixels por segundo)
   },
 
+  // Comandos que mostram classe, vida e pontos em cima do boneco.
+  // (não usamos !status para não brigar com o !status do bot da live)
+  comandosPerfil: ["perfil", "pontos"],
+
   // Logins extras (além dos mods e do dono do canal) que podem usar comandos de controle
   moderadoresExtras: [],
 };

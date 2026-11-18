@@ -10,7 +10,7 @@ Textos prontos para copiar e colar na Twitch. Além deles, o próprio jogo expli
 Cabe no limite de 500 caracteres da Twitch:
 
 ```
-🩸 CONTAGIUM: digite !entrar quando o lobby abrir e vire um bonequinho na tela! A maioria começa HUMANO; zumbis, vampiros e lobisomens tentam contaminar todo mundo, e os bruxos curam. Seu boneco luta sozinho, mas você pode escolher o alvo com !bater @nome (bruxo: !curar @nome). !status mostra sua vida e pontos, !eu mostra onde você está, !loja gasta pontos. Dúvidas? !ajuda
+🩸 CONTAGIUM: digite !entrar quando o lobby abrir e vire um bonequinho na tela! A maioria começa HUMANO; zumbis, vampiros e lobisomens tentam contaminar todo mundo, e os bruxos curam. Seu boneco luta sozinho, mas você pode escolher o alvo com !bater @nome (bruxo: !curar @nome). !perfil mostra sua vida e pontos, !eu mostra onde você está, !loja gasta pontos. Dúvidas? !ajuda
 ```
 
 ---
@@ -48,7 +48,7 @@ Também dá para programar o bot para **repetir a mensagem a cada 15 minutos**, 
 >
 > **Pontos:** vencer, contaminar, curar e purificar dão pontos. Gaste na `!loja`: escudo, cura ou escolher sua classe na próxima partida.
 >
-> **Outros comandos:** `!status` (sua vida e pontos), `!eu` (mostra onde você está), `!ajuda` (como jogar na tela).
+> **Outros comandos:** `!perfil` (sua vida e pontos), `!eu` (mostra onde você está), `!ajuda` (como jogar na tela).
 >
 > 👑 **Cuidado com a Rainha Carmesim:** se ela aparecer no trono, alguém precisa ter coragem de digitar `!atacar rainha`...
 

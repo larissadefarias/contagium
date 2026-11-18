@@ -824,7 +824,7 @@ function comando(u, msg) {
   }
   if (cmd === 'sair' && p && G.fase === 'lobby') { delete G.jogadores[u.login]; return; }
 
-  if (cmd === 'status' || cmd === 'pontos') {
+  if ((C.comandosPerfil || ['perfil', 'pontos']).includes(cmd)) {
     if (p) balao(p, `${cls(p.cls).emoji} ${cls(p.cls).nome} ❤${Math.max(0, Math.round(p.vida))}/${p.max} 💰${pontosDe(u.login)}`, cls(p.cls).cor);
     else noticia(`💰 ${u.nome}: ${pontosDe(u.login)} pontos`);
     return;
@@ -1146,7 +1146,7 @@ function desenharAjuda() {
     ['!bater @nome', 'humano ou monstro: escolhe quem atacar (alvos por perto)'],
     ['!curar @nome', 'bruxo: cura · !purificar @nome: monstro caído vira humano'],
     ['objetivo', 'monstros contaminam humanos · humanos e bruxos tentam sobreviver'],
-    ['!status · !eu', 'sua vida e pontos · setinha em cima do seu boneco'],
+    ['!perfil · !eu', 'sua vida e pontos · setinha em cima do seu boneco'],
     ['!loja', 'gaste pontos: escudo, cura, escolher classe'],
     ['!atacar rainha', 'quando a Rainha estiver no trono 👑'],
   ];
@@ -1168,7 +1168,7 @@ function desenharLoja() {
   ];
   const w = 420, h = 40 + itens.length * 22, x = (W - w) / 2, y = Math.max(8, H * 0.12);
   caixa(x, y, w, h, 10, 'rgba(14,8,22,0.86)', '#bfe3ff');
-  textoContorno('🛒 LOJA  ·  !status mostra seus pontos', W / 2, y + 22, '#bfe3ff', 14, 'center', '700');
+  textoContorno('🛒 LOJA  ·  !perfil mostra seus pontos', W / 2, y + 22, '#bfe3ff', 14, 'center', '700');
   itens.forEach(([a, b], i) => {
     textoContorno(a, x + 16, y + 46 + i * 22, '#ffd75e', 13, 'left');
     textoContorno(b, x + w - 16, y + 46 + i * 22, '#ddd', 12, 'right', '600');
