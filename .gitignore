@@ -1,0 +1,11 @@
+# Arte de terceiros: a licença dos pacotes não permite redistribuir os arquivos.
+# Veja assets/COMO-OBTER.md para baixar e colocar no lugar certo.
+assets/personagens/*.png
+assets/personagens/group_info.txt
+assets/cenario/
+
+# Configurações locais de ferramentas
+.claude/
+.vscode/
+node_modules/
+*.log

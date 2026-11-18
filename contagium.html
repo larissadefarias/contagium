@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contagium: Bellum Noctis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Pixelify+Sans:wght@400;500;600;700&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  /* no modo teste, um fundo escuro simula a live */
+  body.teste { background: linear-gradient(#2b2440, #120d1c); }
+  body.teste canvas { position: fixed; left: 0; bottom: 0; height: calc(100vh - 190px); }
+  #t-stats { flex-basis: 100%; font-size: 12px; line-height: 1.5; color: #d8d0ee; }
+  #t-stats b { color: #ffd75e; margin: 0; }
+  #painel-teste {
+    position: fixed; top: 6px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: max-content; max-width: 96vw;
+    padding: 10px 12px; border-radius: 10px; background: rgba(10,6,18,.9); color: #eee;
+    font: 13px "Segoe UI", sans-serif; border: 1px solid #ffd75e55; z-index: 2;
+  }
+  #painel-teste b { color: #ffd75e; margin-right: 6px; }
+  #painel-teste button { background: #2d2342; color: #fff; border: 1px solid #5a4a80; border-radius: 6px; padding: 4px 8px; cursor: pointer; }
+  #painel-teste button:hover { background: #3d3058; }
+  #painel-teste input[type=text], #painel-teste input:not([type]) { background: #1b1428; color: #fff; border: 1px solid #5a4a80; border-radius: 6px; padding: 4px 6px; }
+  #painel-teste .sep { flex-basis: 100%; height: 0; }
+</style>
+</head>
+<body>
+<canvas id="tela"></canvas>
+<div id="painel-teste" hidden></div>
+<script>if (new URLSearchParams(location.search).has('teste')) document.body.classList.add('teste');</script>
+<script src="config.js"></script>
+<script src="cenarios.js"></script>
+<script src="jogo.js"></script>
+</body>
+</html>
