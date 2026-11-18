@@ -169,7 +169,17 @@ const animTerminou = p => { const [a, b] = faixa(p); return p.animT * C.fps >= (
 const efeitos = [];   // textos e partículas
 const feed = [];      // mensagens no canto
 let banner = null;    // { titulo, linhas, cor, ate }
-let painelLoja = 0;
+let painelLoja = 0, painelAjuda = 0;
+// dicas que giram no lobby (uma a cada poucos segundos)
+const DICAS = [
+  '💬 Digite !entrar para jogar · !ajuda mostra como funciona',
+  '🧍 A maioria começa HUMANO. Sobreviva até o amanhecer!',
+  '🧟🧛🐺 Monstros contaminam humanos. Quem contaminar mais, vence',
+  '🧙 Bruxos curam humanos e purificam monstros caídos',
+  '🤖 Seu boneco luta sozinho. Quer escolher o alvo? !bater @nome',
+  '💰 Vencer dá pontos. Gaste na !loja (escudo, cura, escolher classe)',
+  '▼ Perdeu seu boneco na tela? Digite !eu',
+];
 function texto(x, y, txt, cor = '#fff', tam = 13) { efeitos.push({ tipo: 'txt', x, y, txt, cor, tam, t: 0, dur: 1.4 }); }
 function anel(x, y, cor) { efeitos.push({ tipo: 'anel', x, y, cor, t: 0, dur: 0.7 }); }
 function projetil(x0, y0, x1, y1, cor) { efeitos.push({ tipo: 'proj', x0, y0, x1, y1, cor, t: 0, dur: 0.35 }); }
@@ -194,6 +204,7 @@ function abrirLobby() {
   }
   G.jogadores = {}; G.partida = null; G.resultado = null; G.fase = 'lobby';
   mostrarBanner('CONTAGIUM: BELLUM NOCTIS', ['A noite vai cair... digite !entrar para jogar'], '#ffd75e', 0);
+  banner.dicas = DICAS;
   noticia('🌑 Lobby aberto! Digite !entrar');
 }
 
@@ -818,7 +829,8 @@ function comando(u, msg) {
     else noticia(`💰 ${u.nome}: ${pontosDe(u.login)} pontos`);
     return;
   }
-  if (cmd === 'loja') { painelLoja = agoraReal() + 12; return; }
+  if (cmd === 'loja') { painelLoja = agoraReal() + 12; painelAjuda = 0; return; }
+  if (['ajuda', 'comojogar', 'comandos', 'help'].includes(cmd)) { painelAjuda = agoraReal() + 18; painelLoja = 0; return; }
   if (cmd === 'comprar') return comprar(u, p, (args[0] || '').toLowerCase(), (args[1] || '').toLowerCase());
 
   if (!p || G.fase !== 'partida') return;
@@ -1110,6 +1122,8 @@ function desenharRainha() {
 
 function desenharBanner() {
   if (!banner || banner.ate < agoraReal()) return;
+  if (painelAjuda > agoraReal() || painelLoja > agoraReal()) return; // painel de ajuda/loja fica por cima sozinho
+  if (banner.dicas) banner.linhas = [banner.dicas[Math.floor(agoraReal() / 6) % banner.dicas.length]];
   ctx.save();
   const tTitulo = Math.min(30, Math.max(18, W / 45));
   ctx.font = `700 ${tTitulo}px ${FONTE_TITULO}`;
@@ -1122,6 +1136,27 @@ function desenharBanner() {
   textoContorno(banner.titulo, W / 2, y + 10 + tTitulo, banner.cor, tTitulo, 'center', '700', FONTE_TITULO);
   banner.linhas.forEach((l, i) => textoContorno(l, W / 2, y + 18 + tTitulo + 18 * (i + 1), '#eee', 14));
   ctx.restore();
+}
+
+function desenharAjuda() {
+  if (painelAjuda < agoraReal()) return;
+  const linhas = [
+    ['!entrar', 'você vira um bonequinho (a maioria começa humano)'],
+    ['automático', 'seu boneco luta sozinho, você só assiste e torce'],
+    ['!bater @nome', 'humano ou monstro: escolhe quem atacar (alvos por perto)'],
+    ['!curar @nome', 'bruxo: cura · !purificar @nome: monstro caído vira humano'],
+    ['objetivo', 'monstros contaminam humanos · humanos e bruxos tentam sobreviver'],
+    ['!status · !eu', 'sua vida e pontos · setinha em cima do seu boneco'],
+    ['!loja', 'gaste pontos: escudo, cura, escolher classe'],
+    ['!atacar rainha', 'quando a Rainha estiver no trono 👑'],
+  ];
+  const w = Math.min(640, W - 20), lh = 19, h = 34 + linhas.length * lh, x = (W - w) / 2, y = Math.max(6, H * 0.06);
+  caixa(x, y, w, h, 10, 'rgba(14,8,22,0.9)', '#ffd75e');
+  textoContorno('📖 COMO JOGAR CONTAGIUM', W / 2, y + 21, '#ffd75e', 15, 'center', '800');
+  linhas.forEach(([a, b], i) => {
+    textoContorno(a, x + 14, y + 42 + i * lh, '#ffd75e', 12, 'left', '800');
+    textoContorno(b, x + 140, y + 42 + i * lh, '#eee', 12, 'left', '600');
+  });
 }
 
 function desenharLoja() {
@@ -1169,6 +1204,7 @@ function loop(t) {
   desenharHUD();
   desenharBanner();
   desenharLoja();
+  desenharAjuda();
   requestAnimationFrame(loop);
 }
 
@@ -1274,7 +1310,7 @@ window.__contagium = {
     Cenarios.definir(G.cena);
   }
   if (TESTE) montarPainelTeste(); else conectarChat();
-  if (G.fase === 'lobby') mostrarBanner('CONTAGIUM: BELLUM NOCTIS', ['A noite vai cair... digite !entrar para jogar'], '#ffd75e', 0);
+  if (G.fase === 'lobby') { mostrarBanner('CONTAGIUM: BELLUM NOCTIS', ['A noite vai cair... digite !entrar para jogar'], '#ffd75e', 0); banner.dicas = DICAS; }
   if (G.fase === 'pausa') mostrarBanner('⏸ PAUSADO', [], '#cfc6ff', 0);
   requestAnimationFrame(loop);
 })();

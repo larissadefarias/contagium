@@ -6,7 +6,7 @@
 // =====================================================================
 window.CONFIG = {
   // Nome do seu canal na Twitch (sem o #). Também dá para passar na URL: contagium.html?canal=seucanal
-  canal: "",
+  canal: "amandrakee",
 
   // Duração padrão de cada partida, em minutos (os mods podem mudar com !tempo 30)
   duracaoPadraoMin: 20,

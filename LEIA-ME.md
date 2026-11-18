@@ -16,6 +16,7 @@ Overlay de jogo para a live da Twitch. Os viewers entram pelo chat, cada um vira
 | `assets/personagens` | Folhas de animação dos personagens |
 | `assets/cenario` | Peças do cemitério 16px |
 | `ferramentas/` | Simulador de partidas e o script que gera o `humano.png` |
+| `TUTORIAL-VIEWERS.md` | Textos prontos para o chat, o bot e o painel da Twitch |
 
 ---
 
@@ -62,6 +63,7 @@ O jogo **salva sozinho**. Se o OBS fechar, a partida continua de onde parou.
 | `!status` | Mostra classe, vida e pontos em cima do bonequinho |
 | `!eu` (ou qualquer mensagem) | Mostra uma setinha em cima do seu bonequinho |
 | `!loja` | Mostra a loja |
+| `!ajuda` (ou `!comandos`) | Mostra na tela o painel "Como jogar" |
 | `!comprar escudo` / `!comprar cura` / `!comprar classe vampiro` | Gasta pontos |
 
 ---
